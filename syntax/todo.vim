@@ -40,6 +40,8 @@ syntax  match  TodoPriorityZ  '^([zZ])\s.\+$'             contains=TodoDate,Todo
 syntax  match  TodoDate       '\d\{2,4\}-\d\{2\}-\d\{2\}' contains=NONE
 syntax  match  TodoProject    '\(^\|\W\)+[^[:blank:]]\+'  contains=NONE
 syntax  match  TodoContext    '\(^\|\W\)@[^[:blank:]]\+'  contains=NONE
+syntax  match  TodoNote       '\(^\|\W\)note:[^[:blank:]]\+'  contains=NONE
+syntax  match  TodoNote       '\(^\|\W\)enote:[^[:blank:]]\+'  contains=NONE
 
 " Other priority colours might be defined by the user
 highlight  default  link  TodoDone       Comment
@@ -49,6 +51,8 @@ highlight  default  link  TodoPriorityC  Identifier
 highlight  default  link  TodoDate       PreProc
 highlight  default  link  TodoProject    Special
 highlight  default  link  TodoContext    Special
+highlight  default  link  TodoNote       Repeat
+highlight  default  link  TodoENote       Repeat
 
 if exists('g:todo_load_python') && g:todo_load_python
     if has('python')
